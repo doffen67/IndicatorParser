@@ -23,7 +23,7 @@ def doit(page):
 
 baseURL = "https://otx.alienvault.com/api/v1/indicators/domain/windows.net/url_list?limit=500&page="
 
-#/api/v1/pulses/subscribed?page=1 -H 
+
 hd = { 'X-OTX-API-KEY' : 'INSERT API KEY'}
 
 rq = requests.get(baseURL + str(page0),headers=hd)
