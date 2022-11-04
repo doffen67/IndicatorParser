@@ -12,7 +12,7 @@ def doit(page):
     rq = requests.get(baseURL + str(page),headers=hd)
     data = json.loads(rq.content)
     urlist = data['url_list']
-    print(page)
+    
     
     for item in urlist:
         svurl = item['url']
