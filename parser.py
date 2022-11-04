@@ -5,7 +5,7 @@ has_next_key = False
 nextKey = ""
 page0 = 1
 page = 1
-sas = "?sv="
+sas = "sv="
 
 def doit(page):
     
@@ -13,18 +13,21 @@ def doit(page):
     data = json.loads(rq.content)
     urlist = data['url_list']
     
-    
     for item in urlist:
         svurl = item['url']
         if sas in svurl:
             print(item['url'])
+            iurl = item['url']
+            file1 = open('url-out.txt','a')
+            file1.write("%s\n" % iurl)
+            file1.close()
         else:
             ()
 
 baseURL = "https://otx.alienvault.com/api/v1/indicators/domain/windows.net/url_list?limit=500&page="
 
-
-hd = { 'X-OTX-API-KEY' : 'INSERT API KEY'}
+#/api/v1/pulses/subscribed?page=1 -H 
+hd = { 'X-OTX-API-KEY' : '746038aa1ec9a1c9b9eb0fc5a3fb7e5ef14d58f0e07fac5f6e93c823c38b0dab'}
 
 rq = requests.get(baseURL + str(page0),headers=hd)
 
@@ -37,7 +40,7 @@ for item in urlist:
     else:
         ()
 
-while data['has_next'] == True:
+while page < 750:
     page+=1
     doit(page)
     
