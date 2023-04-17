@@ -27,7 +27,7 @@ def doit(page):
 baseURL = "https://otx.alienvault.com/api/v1/indicators/domain/windows.net/url_list?limit=500&page="
 
 #/api/v1/pulses/subscribed?page=1 -H 
-hd = { 'X-OTX-API-KEY' : '746038aa1ec9a1c9b9eb0fc5a3fb7e5ef14d58f0e07fac5f6e93c823c38b0dab'}
+hd = { 'X-OTX-API-KEY' : '[API KEY]'}
 
 rq = requests.get(baseURL + str(page0),headers=hd)
 
